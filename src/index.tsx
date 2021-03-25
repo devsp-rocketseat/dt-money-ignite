@@ -7,16 +7,16 @@ import App from './App'
 
 createServer({
     models: {
-        transition: Model
+        transaction: Model
     },
 
     seeds(server) {
         server.db.loadData({
-            transitions: [
+            transactions: [
                 {
                     id: 1,
                     title: 'Criando de Website',
-                    amount: 10000,
+                    amount: 6000,
                     type: 'deposit',
                     category: 'Freelancer',
                     createdAt: new Date('2021-02-12 09:00:00'),
@@ -37,13 +37,13 @@ createServer({
         this.namespace = 'api'
 
         this.get('/transactions', () => {
-            return this.schema.all('transition')
+            return this.schema.all('transaction')
         })
 
         this.post('/transactions', (schema, request) => {
             const data = JSON.parse(request.requestBody)
 
-            return schema.create('transition', data)
+            return schema.create('transaction', data)
         })
     }
 })

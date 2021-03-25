@@ -18,18 +18,18 @@ export function TransactionTable() {
                 </thead>
 
                 <tbody>
-                    {transactions.map(transition => (
-                        <tr key={transition.id}>
-                            <td>{transition.title}</td>
-                            <td className={transition.type}>
+                    {transactions.map(transaction => (
+                        <tr key={transaction.id}>
+                            <td>{transaction.title}</td>
+                            <td className={transaction.type}>
                                 {new Intl.NumberFormat('pt-BR', {
                                     style: 'currency',
                                     currency: 'BRL'
-                                }).format(transition.amount)}
+                                }).format(transaction.amount)}
                             </td>
-                            <td>{transition.category}</td>
+                            <td>{transaction.category}</td>
                             <td>{new Intl.DateTimeFormat('pt-BR').format(
-                                new Date(transition.createdAt)
+                                new Date(transaction.createdAt)
                             )}</td>
                         </tr>
                     ))}
