@@ -1,7 +1,6 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
 import Modal from 'react-modal'
-
-import { api } from '../../services/api'
+import { TransactionContext } from '../../TransactionsContext'
 
 import { Container, TransactionTypeContainer, RadioButton } from './styles'
 
@@ -17,6 +16,8 @@ interface NewTransactionModalProps {
 }
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
+    const { createTransaction } = useContext(TransactionContext)
+
     const [title, setTitle] = useState('')
     const [amount, setAmount] = useState(0)
     const [type, setType] = useState('deposit')
@@ -32,7 +33,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
             category
         }
 
-        api.post('/transactions', data)
+        createTransaction(data)
     }
 
     return (
