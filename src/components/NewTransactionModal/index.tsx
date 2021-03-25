@@ -18,7 +18,7 @@ interface NewTransactionModalProps {
 
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
     const [title, setTitle] = useState('')
-    const [value, setValue] = useState(0)
+    const [amount, setAmount] = useState(0)
     const [type, setType] = useState('deposit')
     const [category, setCategory] = useState('')
 
@@ -27,7 +27,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
 
         const data = {
             title,
-            value,
+            amount,
             type,
             category
         }
@@ -51,7 +51,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
 
                 <input placeholder="Título" value={title} onChange={e => setTitle(e.target.value)} />
 
-                <input placeholder="Valor" type="number" value={value} onChange={e => setValue(Number(e.target.value))} />
+                <input placeholder="Valor" type="number" value={amount} onChange={e => setAmount(Number(e.target.value))} />
 
                 <TransactionTypeContainer>
                     <RadioButton type="button" onClick={() => setType('deposit')} isActive={type === 'deposit'} activeColor='green'>
