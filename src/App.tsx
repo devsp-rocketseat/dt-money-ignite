@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { TransactionProvider } from './TransactionsContext'
+import { TransactionProvider } from './hooks/useTransactions'
 
 import { Header } from './components/Header'
 import { Dashboard } from './components/Dashboard'
